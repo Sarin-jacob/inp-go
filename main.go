@@ -156,7 +156,7 @@ func getFaceKey(face []int) FaceKey {
 	copy(sorted, face)
 	sort.Ints(sorted)
 	var key FaceKey
-	for i, v := range sorted { key[i] = v }
+	copy(key[:], sorted)
 	return key
 }
 
@@ -187,7 +187,7 @@ func exportOBJ(path string, nodes map[int]Node, outerFaces [][]int) {
 	file, _ := os.Create(path)
 	defer file.Close()
 	writer := bufio.NewWriter(file)
-	writer.WriteString(fmt.Sprintf("# Converted by INP Parser\n"))
+	writer.WriteString("# Converted by INP Parser\n")
 
 	usedNodes := make(map[int]bool)
 	for _, f := range outerFaces {
