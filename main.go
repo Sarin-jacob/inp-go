@@ -323,7 +323,7 @@ func exportGLB(path string, nodes map[int]Node, outerFaces [][]int) {
 // --- MAIN CLI ---
 
 func main() {
-	formatPtr := flag.String("format", "all", "Comma-separated list (e.g. stl,glb,obj) or 'all'")
+	formatPtr := flag.String("format", "glb", "Comma-separated list (e.g. stl,glb,obj) or 'all'")
 	flag.Parse()
 
 	if len(flag.Args()) < 1 {
